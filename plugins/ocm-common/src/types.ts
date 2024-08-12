@@ -18,6 +18,15 @@ export type ClusterNodesStatus = {
   type: string;
 };
 
+type NodePoolDetails = {
+  nodePoolName: string;
+  replicas: number;
+  cores: number;
+  memory: string;
+  storage: string;
+};
+
+
 export type ClusterDetails = {
   consoleUrl?: string;
   kubernetesVersion?: string;
@@ -38,6 +47,7 @@ export type ClusterDetails = {
   };
   update?: ClusterUpdate;
   status: ClusterStatus;
+  nodepool?: NodePoolDetails[];
 };
 
 export type Cluster = ClusterBase & ClusterDetails;
