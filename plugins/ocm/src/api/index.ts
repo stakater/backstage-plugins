@@ -56,4 +56,11 @@ export class OcmApiClient implements OcmApiV1 {
   ): Promise<Cluster | ErrorResponseBody> {
     return this.clusterApiFetchCall(`/${providerId}/${name}`);
   }
+
+  getClusterNodePool(
+    providerId: string,
+    name: string,
+  ): Promise<Cluster | ErrorResponseBody> {
+    return this.clusterApiFetchCall(`/${providerId}/${name}/nodepool`);
+  }
 }

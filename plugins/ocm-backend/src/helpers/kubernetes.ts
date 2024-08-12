@@ -94,12 +94,28 @@ export const getManagedCluster = (api: CustomObjectsApi, name: string) => {
   );
 };
 
+// export const listManagedClusters = (api: CustomObjectsApi) => {
+//   return kubeApiResponseHandler<KubernetesListObject<ManagedCluster>>(
+//     api.listClusterCustomObject(
+//       'cluster.open-cluster-management.io',
+//       'v1',
+//       'managedclusters',
+//     ),
+//   );
+// };
+
 export const listManagedClusters = (api: CustomObjectsApi) => {
   return kubeApiResponseHandler<KubernetesListObject<ManagedCluster>>(
     api.listClusterCustomObject(
       'cluster.open-cluster-management.io',
       'v1',
       'managedclusters',
+      undefined, // pretty
+      undefined, // allowWatchBookmarks
+      undefined, // _continue
+      undefined, // fieldSelector
+      'name=alpha', // labelSelector
+   
     ),
   );
 };
